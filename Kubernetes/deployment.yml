@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamverse-app
+  labels:
+    app: streamverse-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: streamverse-app
+  template:
+    metadata:
+      labels:
+        app: streamverse-app
+    spec:
+      containers:
+      - name: streamverse-app
+        image: induanoopsia/streamverse:latest
+        ports:
+        - containerPort: 80
